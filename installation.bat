@@ -1,0 +1,9 @@
+@echo off
+echo Creando un venv...
+python -m venv .venv
+
+echo Activando el entorno virtual...
+call .venv\Scripts\activate
+
+echo Instalando paquetes...
+pip install -r requierements.txt
