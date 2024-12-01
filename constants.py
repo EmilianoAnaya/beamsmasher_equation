@@ -1,5 +1,7 @@
 from enum import Enum
 
+BACKGROUND_IMAGE = "resources/background_beamsmasher.jpg"
+
 # Ruta de los simbolos posibles
 class Symbol(Enum):
     ZERO = "resources/symbols-01.jpg"
@@ -15,5 +17,7 @@ class Number(Enum):
     ONE = "resources/number_one.jpg"
     TWO = "resources/number_two.jpg"
 
-BACKGROUND_IMAGE = "resources/background_beamsmasher.jpg"
-CHILD_CONTAINER_SIZE = 80
+# Tamaños de los contenedores
+CHILD_CONTAINER_SIZE:int = 80
+VARIABLES_CONTAINER_WIDTH = 100
+VARIABLES_CONTAINER_HEIGHT = 80
