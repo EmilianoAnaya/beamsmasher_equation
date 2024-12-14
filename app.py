@@ -7,13 +7,13 @@ from constants import Symbol, Number,BACKGROUND_IMAGE
 
 class Beamsmasher_Equation():
     def __init__(self):
-        self.variables = [0,0,0] #Cada posición inidica las variables X, Y y Z correspondientes
+        self.variables = [1,1,1] #Cada posición inidica las variables X, Y y Z correspondientes
         self.chars = ["X","Y","Z"]
         self.index = 0
     
     def reset_data(self, e):
         self.index = 0
-        self.variables = [0]*3
+        self.variables = [1]*3
         Button.hover_index_color = 0
         self.first_ans.value = "--"
         self.second_ans.value = "--"
@@ -33,11 +33,12 @@ class Beamsmasher_Equation():
     
     def update_variable(self, value):
         self.variables[self.index] = value
-        self.first_ans.value = f"{2*(self.variables[0]) + 11:02}"
-        self.second_ans.value = f"{(2*(self.variables[2]) + self.variables[1]) - 5:02}"
-        self.third_ans.value = f"{abs((self.variables[1] + self.variables[2]) - self.variables[0]):02}"
+        if self.variables[0] != 1 and self.variables[1] != 1 and self.variables[2] != 1:
+            self.first_ans.value = f"{2*(self.variables[0]) + 11:02}"
+            self.second_ans.value = f"{(2*(self.variables[2]) + self.variables[1]) - 5:02}"
+            self.third_ans.value = f"{abs((self.variables[1] + self.variables[2]) - self.variables[0]):02}"
+            self.update_answers()
         self.list_variables[self.index].set_variable(value)
-        self.update_answers()
         self.index += 1
         if self.index > 2:
             self.index = 0
